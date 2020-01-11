@@ -9,6 +9,9 @@ import { NullpointerComponent } from './layout/nullpointer/nullpointer.component
 import { JobOffersComponent } from './layout/job-offers/job-offers.component';
 import { UserProfileComponent } from './layout/user-profile/user-profile.component';
 import { NanoblogComponent } from './layout/nanoblog/nanoblog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoutingModule } from './routing/routing.module';
+import {MaterialModule} from "./material/material.module";
 
 @NgModule({
   declarations: [
@@ -21,8 +24,11 @@ import { NanoblogComponent } from './layout/nanoblog/nanoblog.component';
     NanoblogComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
