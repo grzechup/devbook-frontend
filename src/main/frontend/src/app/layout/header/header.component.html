@@ -1,1 +1,30 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    Dane uzytkownika
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/board">Board</a>
+      </li>
+      <li>
+        <a routerLink="/nanoblog">Nanoblog</a>
+      </li>
+      <li>
+        <a routerLink="/nullpointer">Nullpointer</a>
+      </li>
+      <li>
+        <a routerLink="/joboffers">Job offers</a>
+      </li>
+    </ul>
+  </div>
+  <div>powiadomienia</div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    wylogowanie
+  </div>
+</mat-toolbar>

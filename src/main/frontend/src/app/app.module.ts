@@ -12,6 +12,8 @@ import { NanoblogComponent } from './layout/nanoblog/nanoblog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './routing/routing.module';
 import {MaterialModule} from "./material/material.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import {MaterialModule} from "./material/material.module";
     NullpointerComponent,
     JobOffersComponent,
     UserProfileComponent,
-    NanoblogComponent
+    NanoblogComponent,
+    LayoutComponent
   ],
   imports: [
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RoutingModule
+    RoutingModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
