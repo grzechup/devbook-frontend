@@ -3,28 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { BoardComponent } from './layout/board/board.component';
-import { NullpointerComponent } from './layout/nullpointer/nullpointer.component';
-import { JobOffersComponent } from './layout/job-offers/job-offers.component';
-import { UserProfileComponent } from './layout/user-profile/user-profile.component';
-import { NanoblogComponent } from './layout/nanoblog/nanoblog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from "./material.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { LoginComponent } from './login/login.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import {AuthenticationService} from "./security/authentication.service";
+import {HeaderComponent} from "./components/header/header.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    BoardComponent,
-    NullpointerComponent,
-    JobOffersComponent,
-    UserProfileComponent,
-    NanoblogComponent
   ],
   imports: [
+    HttpClientModule,
+    MaterialModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

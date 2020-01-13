@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+   Użytkownik
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/site/board">Board</a>
+      </li>
+      <li>
+        <a routerLink="/site/nanoblog">Nanoblog</a>
+      </li>
+      <li>
+        <a routerLink="/site/nullpointer">Nullpointer</a>
+      </li>
+      <li>
+        <a routerLink="/site/joboffers">Job offers</a>
+      </li>
+    </ul>
+  </div>
+  <div>powiadomienia</div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <button mat-button><mat-icon>menu</mat-icon></button>
+  </div>
+</mat-toolbar>
