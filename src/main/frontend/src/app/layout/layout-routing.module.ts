@@ -6,6 +6,7 @@ import {NullpointerComponent} from "./nullpointer/nullpointer.component";
 import {NanoblogComponent} from "./nanoblog/nanoblog.component";
 import {JobOffersComponent} from "./job-offers/job-offers.component";
 import {LayoutComponent} from "./layout.component";
+import {AuthGuardService} from "../security/auth-guard.service";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
     children: [
       {
         path: 'board', component: BoardComponent,
-        loadChildren: () => import('./board/board.module').then(m => m.BoardModule)
+        loadChildren: () => import('./board/board.module').then(m => m.BoardModule),
+/*        canActivate: [AuthGuardService]*/
       },
       {
         path: 'nullpointer', component: NullpointerComponent,

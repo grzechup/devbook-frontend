@@ -8,7 +8,6 @@ import {MaterialModule} from "./material.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { LoginComponent } from './login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {HttpInterceptorService} from "./security/http-interceptor.service";
 import {FormsModule} from "@angular/forms";
 import {AuthenticationService} from "./security/authentication.service";
 import {HeaderComponent} from "./components/header/header.component";
@@ -28,11 +27,7 @@ import {HeaderComponent} from "./components/header/header.component";
   ],
   providers: [
     AuthenticationService,
-    {
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpInterceptorService,
-    multi: true
-  }],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
