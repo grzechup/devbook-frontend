@@ -15,7 +15,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
   declarations: [
     LayoutComponent,
     HeaderComponent
-    ],
+  ],
   imports: [
     FlexLayoutModule,
     LayoutRoutingModule,
@@ -26,7 +26,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     NullpointerModule,
     NanoblogModule,
     JobOffersModule
-
   ],
   providers: [],
   entryComponents: []

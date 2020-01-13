@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {LoginComponent} from "../login/login.component";
+import {LoginComponent} from "../components/forms/login/login.component";
 import {BoardComponent} from "./board/board.component";
 import {NullpointerComponent} from "./nullpointer/nullpointer.component";
 import {NanoblogComponent} from "./nanoblog/nanoblog.component";

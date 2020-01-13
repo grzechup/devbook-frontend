@@ -1,6 +1,8 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 
 export class User{
@@ -17,17 +19,40 @@ export class JwtResponse{
 
 }
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+  private  API_URL = environment.restUrl;
+  private  authUrl:string = environment.restUrl + 'auth';
+  private  LOGIN_URL: string = environment.restUrl + 'login';
+  private  REGISTER_URL: string = environment.restUrl + 'register';
+  private  JWT_REFRESH_URL: string = environment.restUrl + 'jwt-refresh'
+  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+  static readonly COOKIE_AUTHORIZATION_NAME = "Authorization";
+
+  public username: String;
+  public password: String;
 
   constructor(
     private httpClient:HttpClient
   ) {
   }
 
-  authenticate(username, password) {
+  login(): Observable<any> {
+    return this.httpClient.post(this.LOGIN_URL , {
+      username: this.username,
+      password: this.password
+    }, httpOptions);
+  }
+
+
+/*  authenticate(username, password) {
     return this.httpClient.post<any>('http://localhost:8080/authenticate',{username,password}).pipe(
       map(
         userData => {
@@ -39,7 +64,7 @@ export class AuthenticationService {
       )
 
     );
-  }
+  }*/
 
 
   isUserLoggedIn() {
