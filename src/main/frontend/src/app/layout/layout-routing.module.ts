@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {LoginComponent} from "../login/login.component";
+import {LoginComponent} from "../components/forms/login/login.component";
 import {BoardComponent} from "./board/board.component";
 import {NullpointerComponent} from "./nullpointer/nullpointer.component";
 import {NanoblogComponent} from "./nanoblog/nanoblog.component";
@@ -16,19 +16,22 @@ const routes: Routes = [
       {
         path: 'board', component: BoardComponent,
         loadChildren: () => import('./board/board.module').then(m => m.BoardModule),
-/*        canActivate: [AuthGuardService]*/
+        canActivate: [AuthGuardService]
       },
       {
         path: 'nullpointer', component: NullpointerComponent,
-        loadChildren: () => import('./nullpointer/nullpointer.module').then(m => m.NullpointerModule)
+        loadChildren: () => import('./nullpointer/nullpointer.module').then(m => m.NullpointerModule),
+        canActivate: [AuthGuardService]
       },
       {
         path: 'nanoblog', component: NanoblogComponent,
-        loadChildren: () => import('./nanoblog/nanoblog.module').then(m => m.NanoblogModule)
+        loadChildren: () => import('./nanoblog/nanoblog.module').then(m => m.NanoblogModule),
+        canActivate: [AuthGuardService]
       },
       {
         path: 'joboffers', component: JobOffersComponent,
-        loadChildren: () => import('./job-offers/job-offers.module').then(m => m.JobOffersModule)
+        loadChildren: () => import('./job-offers/job-offers.module').then(m => m.JobOffersModule),
+        canActivate: [AuthGuardService]
       },
       {path: '', redirectTo: 'board', pathMatch: 'full'}
     ]
