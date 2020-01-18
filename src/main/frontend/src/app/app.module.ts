@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {AuthenticationService} from "./security/authentication.service";
 import {UserService} from "./services/user.service";
 import {TokenStorageService} from "./security/token-storage.service";
+import {AuthGuardService} from "./security/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {TokenStorageService} from "./security/token-storage.service";
     AuthenticationService,
     UserService,
     TokenStorageService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

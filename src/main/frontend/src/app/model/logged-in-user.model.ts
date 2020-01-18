@@ -1,8 +1,12 @@
-export interface LoggedInUser {
-  mainNumber: string;
-  userLogin: string;
-  vpbxId: number;
-  language: string;
-  roles: string[];
-  sessionExpireTimeMilis: number;
+import {Role} from "../enum/role.enum";
+
+export class LoggedInUser {
+
+  username: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  role: Role;
+
+
 }

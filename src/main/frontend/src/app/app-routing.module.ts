@@ -7,7 +7,7 @@ const routes: Routes = [
   {path: 'site', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)},
   {path: 'login', loadChildren: () => import('./components/forms/login/login.module').then(m => m.LoginModule)},
   {path: 'sign-up', loadChildren: () => import('./components/forms/sign-up/sign-up.module').then(m => m.SignUpModule)},
-  {path: '**', redirectTo: 'site'}
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({
