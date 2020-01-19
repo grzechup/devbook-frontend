@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "../../../security/authentication.service";
-import {TokenStorageService} from "../../../security/token-storage.service";
+import {AuthenticationService} from "../../security/authentication.service";
+import {TokenStorageService} from "../../security/token-storage.service";
 
 @Component({
   selector: 'app-login',
@@ -28,9 +28,12 @@ export class LoginComponent implements OnInit {
     private tokenStorage: TokenStorageService) {   }
 
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
+    let token = this.tokenStorage.getToken();
+    console.log(token);
+    if (token !=null) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      this.router.navigate(['/site/board']);
     }
   }
 

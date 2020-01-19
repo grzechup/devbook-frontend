@@ -8,6 +8,7 @@ import {NullpointerComponent} from "./nullpointer.component";
   declarations: [NullpointerComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [NullpointerComponent],
 })
 export class NullpointerModule { }

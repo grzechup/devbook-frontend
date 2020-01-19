@@ -4,18 +4,28 @@ import {BoardComponent} from "./board.component";
 import {FormsModule} from "@angular/forms";
 import {MaterialModule} from "../../material.module";
 import {BoardRoutingModule} from "./board-routing.module";
+import {MatCardModule} from "@angular/material/card";
+import {FlexModule} from "@angular/flex-layout";
+import {BoardCardComponent} from "./board-card/board-card.component";
+
 
 
 
 @NgModule({
-  declarations: [BoardComponent],
+  declarations: [
+    BoardComponent,
+    BoardCardComponent],
   imports: [
     BoardRoutingModule,
     MaterialModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    MatCardModule,
+    FlexModule
   ],
-  exports:[],
-  entryComponents:[]
+  exports: [
+    BoardCardComponent
+  ],
+  entryComponents:[BoardCardComponent],
 })
 export class BoardModule { }

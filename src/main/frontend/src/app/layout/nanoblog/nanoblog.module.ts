@@ -8,6 +8,7 @@ import {NanoblogComponent} from "./nanoblog.component";
   declarations: [NanoblogComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [NanoblogComponent]
 })
 export class NanoblogModule { }

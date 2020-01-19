@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../security/token-storage.service";
-import {Role} from "../enum/role.enum";
+import {Role} from "../model/enum/role.enum";
 
 @Component({
   selector: 'app-layout',

@@ -4,12 +4,13 @@ import {LayoutComponent} from "./layout.component";
 import {LayoutRoutingModule} from "./layout-routing.module";
 import {MaterialModule} from "../material.module";
 import {FormsModule} from "@angular/forms";
-import {HeaderComponent} from "../components/header/header.component";
+import {HeaderComponent} from "./component/header/header.component";
 import {BoardModule} from "./board/board.module";
 import {NullpointerModule} from "./nullpointer/nullpointer.module";
 import {NanoblogModule} from "./nanoblog/nanoblog.module";
 import {JobOffersModule} from "./job-offers/job-offers.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -22,12 +23,14 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MaterialModule,
     CommonModule,
     FormsModule,
+    MatCardModule,
     BoardModule,
     NullpointerModule,
     NanoblogModule,
     JobOffersModule
   ],
   providers: [],
+  exports: [],
   entryComponents: []
 })
 export class LayoutModule { }

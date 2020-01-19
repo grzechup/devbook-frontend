@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {TokenStorageService} from "../../security/token-storage.service";
+import {TokenStorageService} from "../../../security/token-storage.service";
+import {User} from "../../../model/user.model";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-header',
@@ -10,9 +12,16 @@ export class HeaderComponent implements OnInit {
 
   @Output() public sidenavToggle = new EventEmitter();
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  private loggedInUser: User;
+
+  constructor(private tokenStorage: TokenStorageService,
+              private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getLoggedInUser().subscribe(result => {
+      this.loggedInUser = result;
+      console.log(result);
+    })
   }
 
   onToggleSidenav() {
