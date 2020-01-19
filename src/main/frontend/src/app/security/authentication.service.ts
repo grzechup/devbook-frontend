@@ -4,14 +4,6 @@ import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 
-
-export class User{
-  constructor(
-    public status:string,
-  ) {}
-
-}
-
 export class JwtResponse{
   constructor(
     public jwttoken:string,
