@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     console.log(token);
     if (token !=null) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      this.roles = this.tokenStorage.getUserAuth().roles;
       this.router.navigate(['/site/board']);
     }
   }
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
+        this.roles = this.tokenStorage.getUserAuth().roles;
         this.router.navigate(['/site/board']);
       },
       err => {
@@ -53,19 +53,6 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-
-/*    (this.authenticationService.authenticate(this.username, this.password).subscribe(
-        data => {
-          this.router.navigate(['/site/board'])
-          this.invalidLogin = false
-        },
-        error => {
-          this.invalidLogin = true
-
-        }
-      )
-    );*/
-
   }
 
   reloadPage() {

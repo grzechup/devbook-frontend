@@ -1,12 +1,12 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {LoginComponent} from "../components/login/login.component";
 import {BoardComponent} from "./board/board.component";
 import {NullpointerComponent} from "./nullpointer/nullpointer.component";
 import {NanoblogComponent} from "./nanoblog/nanoblog.component";
 import {JobOffersComponent} from "./job-offers/job-offers.component";
 import {LayoutComponent} from "./layout.component";
 import {AuthGuardService} from "../security/auth-guard.service";
+import {FriendsListComponent} from "./friends-list/friends-list.component";
 
 
 const routes: Routes = [
@@ -31,6 +31,11 @@ const routes: Routes = [
       {
         path: 'joboffers', component: JobOffersComponent,
         loadChildren: () => import('./job-offers/job-offers.module').then(m => m.JobOffersModule),
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'friends', component: FriendsListComponent,
+        loadChildren: () => import('./friends-list/friends-list.module').then(m => m.FriendsListModule),
         canActivate: [AuthGuardService]
       },
 /*      {path: '', redirectTo: 'board', pathMatch: 'full'}*/

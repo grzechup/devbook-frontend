@@ -11,6 +11,7 @@ import {NanoblogModule} from "./nanoblog/nanoblog.module";
 import {JobOffersModule} from "./job-offers/job-offers.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
+import {FriendsListModule} from "./friends-list/friends-list.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import {MatCardModule} from "@angular/material/card";
     BoardModule,
     NullpointerModule,
     NanoblogModule,
-    JobOffersModule
+    JobOffersModule,
+    FriendsListModule
+
   ],
   providers: [],
   exports: [],

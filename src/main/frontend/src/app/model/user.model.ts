@@ -9,6 +9,9 @@ export class User {
   email: string;
   role: Role;
   friends: User[];
+  friendsOf: User[];
+  invitedFriends: User[];
+  invitationsToFriends: User[];
   experience: number;
 
 

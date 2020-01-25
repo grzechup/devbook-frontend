@@ -1,0 +1,79 @@
+<div fxFill fxLayout="row">
+  <div fxFlex="60" class="friends">
+
+    <mat-tab-group>
+      <mat-tab label="Znajomi">
+        <mat-grid-list cols="3" rowHeight="12rem">
+          <mat-grid-tile *ngFor="let user of searchedUsers">
+            <igx-card>
+            <!--  TODO: zdjecie profilowe-->
+              <!--              <igx-card-media height="196px">
+                              <img [src]="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50">
+                            </igx-card-media>-->
+              <igx-card-header>
+                <h3 igxCardHeaderTitle>{{user.firstname}} {{user.lastname}}</h3>
+              </igx-card-header>
+              <igx-card-content>
+                  <p> Nazwa użytkownika: {{user.username}}</p>
+                  <p> Punkty doświadczenia: {{user.experience}}</p>
+              </igx-card-content>
+                <igx-card-actions>
+                  <button igxButton igxRipple>Zobacz profil</button>
+                  <button igxButton="icon" igxRipple igxRippleCentered="true">
+                    <mat-icon matTooltip="Wyślij wiadomość">message</mat-icon>
+                  </button>
+                </igx-card-actions>
+            </igx-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+      </mat-tab>
+      <mat-tab label="Zaproszenia">
+        <igx-list #item *ngFor="let user of invitations" class="invitations-list">
+          <igx-list-item>
+            <h4 igxListLineTitle>{{ user.firstname }} {{user.lastname}}</h4>
+            <p igxListLineSubTitle>Nazwa użytkownika: {{user.username}}</p>
+            <button mat-icon-button>
+              <mat-icon matTooltip="Zobacz profil użytkownika {{user.username}}">
+                account_circle
+              </mat-icon>
+            </button>
+            <button mdbBtn (click)="onAcceptInvitationClick(user)">Przyjmij do znajomych!</button>
+          </igx-list-item>
+        </igx-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+
+
+  <!--prawa strona-->
+  <div fxFlex="40">
+    Zaproś do znajomych!
+
+    <form class="md-form form-sm" fxLayout="row">
+      <mat-icon>search</mat-icon>
+      <input class="form-control form-control-sm ml-3 w-75" type="text"
+             placeholder="Szukaj" matTooltip="Wpisz imię, nazwisko lub nazwę użytkownika"
+             aria-label="Szukaj" [(ngModel)]="searchValue" name="searchValue">
+      <button mdbBtn size="sm" gradient="aqua" rounded="true"
+              class="my-0 waves-light" mdbWavesEffect type="submit"
+              (click)="onSearchButtonClick()">Szukaj
+      </button>
+    </form>
+    <div>
+      <igx-list #item *ngFor="let user of searchedUsers">
+        <igx-list-item>
+          <h4 igxListLineTitle>{{ user.firstname }} {{user.lastname}}</h4>
+          <p igxListLineSubTitle>Nazwa użytkownika: {{user.username}}</p>
+          <button mat-icon-button>
+            <mat-icon matTooltip="Zobacz profil użytkownika {{user.username}}">
+              account_circle
+            </mat-icon>
+          </button>
+          <button mdbBtn (click)="onInviteToFriendsListClick(user)">zaproś do znajomych!</button>
+        </igx-list-item>
+      </igx-list>
+    </div>
+  </div>
+</div>

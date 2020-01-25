@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorage.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorage.getUser();
+      const user = this.tokenStorage.getUserAuth();
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes(Role.ROLE_ADMIN);

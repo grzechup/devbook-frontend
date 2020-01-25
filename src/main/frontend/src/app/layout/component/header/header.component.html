@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div>Witaj
+  <div *ngIf="!!loggedInUser">Witaj
    {{loggedInUser.firstname}}, masz {{loggedInUser.experience}} punktów doświadczenia
   </div>
   <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
@@ -19,7 +19,10 @@
         <a routerLink="/site/nullpointer">Nullpointer</a>
       </li>
       <li>
-        <a routerLink="/site/joboffers">Job offers</a>
+        <a routerLink="/site/joboffers">Jobber</a>
+      </li>
+      <li>
+        <a routerLink="/site/friends">Znajomi</a>
       </li>
     </ul>
   </div>
