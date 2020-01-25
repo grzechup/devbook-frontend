@@ -1,4 +1,5 @@
 import {Role} from "./enum/role.enum";
+import {InvitationsToFriends} from "./invitations-to-friends.model";
 
 export class User {
 
@@ -8,10 +9,10 @@ export class User {
   lastname: string;
   email: string;
   role: Role;
-  friends: User[];
-  friendsOf: User[];
-  invitedFriends: User[];
-  invitationsToFriends: User[];
+  friends: InvitationsToFriends[];
+  friendsOf: InvitationsToFriends[];
+  invitedFriends: InvitationsToFriends[];
+  invitationsToFriends: InvitationsToFriends[];
   experience: number;
 
 

@@ -10,17 +10,25 @@ import {User} from "../../model/user.model";
 export class FriendsListComponent implements OnInit {
 
   searchValue: string = "";
+  friends: User[] = [];
   searchedUsers: User[] = [];
+  invitedFriends: User[] = []
   invitations: User[] = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getLoggedInUser().subscribe(result => {
-      console.log(result.invitationsToFriends);
-      this.invitations = result.invitationsToFriends;
+      console.log(result);
+      this.populateFields(result);
     })
+  }
 
+  populateFields(user:User){
+    this.invitedFriends = user.invitedFriends.map(i => i.to);
+    this.invitations = user.invitationsToFriends.map(i =>i.from);
+    this.friends = user.friends.map(f => f.from);
+    user.friendsOf.map(f => f.to).forEach(f => this.friends.push(f));
   }
 
   onSearchButtonClick() {
@@ -31,7 +39,6 @@ export class FriendsListComponent implements OnInit {
         console.log(result.content);
       });
     }
-
   }
 
   onInviteToFriendsListClick(user: User) {
@@ -46,6 +53,7 @@ export class FriendsListComponent implements OnInit {
     if(!!user){
       this.userService.acceptInvitationToFriendsList(user).subscribe(result => {
         console.log(result);
+        this.ngOnInit();
       })
     }
   }

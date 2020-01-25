@@ -4,7 +4,7 @@
     <mat-tab-group>
       <mat-tab label="Znajomi">
         <mat-grid-list cols="3" rowHeight="12rem">
-          <mat-grid-tile *ngFor="let user of searchedUsers">
+          <mat-grid-tile *ngFor="let user of friends">
             <igx-card>
             <!--  TODO: zdjecie profilowe-->
               <!--              <igx-card-media height="196px">
@@ -71,7 +71,10 @@
               account_circle
             </mat-icon>
           </button>
-          <button mdbBtn (click)="onInviteToFriendsListClick(user)">zaproś do znajomych!</button>
+
+         <!-- TODO: sprawdzenie czy user jest juz w znajomych lub zaproszeniach-->
+          <button  mdbBtn (click)="onInviteToFriendsListClick(user)">zaproś do znajomych!</button>
+
         </igx-list-item>
       </igx-list>
     </div>

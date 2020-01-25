@@ -14,7 +14,7 @@ export class UserService {
   private SEARCH_USER_BY_USERNAME_URL: string = environment.restUrl + 'user/search';
   private INVITE_TO_FRIENDS_LIST_URL: string = environment.restUrl + 'user/invite';
   private GET_USER_INVITATIONS_URL: string = environment.restUrl + 'user/invitations';
-  private ACCEPT_INVITATION_TO_FRIENDS_LIST_URL: string = environment.restUrl + '/user/invitations/accept';
+  private ACCEPT_INVITATION_TO_FRIENDS_LIST_URL: string = environment.restUrl + 'user/invitations/accept';
 
   constructor(private http: HttpClient,
               private tokenStorage: TokenStorageService) {
@@ -54,8 +54,8 @@ export class UserService {
     });
   }
 
-  acceptInvitationToFriendsList(user: User) {
-    return this.http.post(this.ACCEPT_INVITATION_TO_FRIENDS_LIST_URL, {
+  acceptInvitationToFriendsList(user: User): Observable<User> {
+    return this.http.post<User>(this.ACCEPT_INVITATION_TO_FRIENDS_LIST_URL, {
       mainUsername: this.tokenStorage.getUserAuth().username,
       usernameToProcess: user.username
     });
