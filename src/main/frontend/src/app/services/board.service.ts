@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {BoardPost} from "../model/board-post.model";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
+import {BoardComment} from "../model/board-comment.model";
 
 @Injectable()
 export class BoardService {
@@ -10,6 +11,7 @@ export class BoardService {
   private POST_NEW_BOARD_POST_URL: string = environment.restUrl + 'board'
   private LIKE_BOARD_POST_URL: string = environment.restUrl + 'board/like';
   private UNLIKE_BOARD_POST_URL: string = environment.restUrl + 'board/unlike';
+  private COMMENT_BOARD_POST_URL: string = environment.restUrl + 'board/comment';
 
   constructor(private http: HttpClient){
   }
@@ -28,5 +30,9 @@ export class BoardService {
 
   unlikeBoardPost(id: number): Observable<BoardPost> {
     return this.http.post<BoardPost>(this.UNLIKE_BOARD_POST_URL, id);
+  }
+
+  commentBoardPost(id: number, content: string): Observable<BoardComment> {
+    return this.http.post<BoardComment>(this.COMMENT_BOARD_POST_URL,{id: id, content: content});
   }
 }

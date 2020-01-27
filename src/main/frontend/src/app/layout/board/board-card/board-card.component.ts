@@ -16,9 +16,11 @@ export class BoardCardComponent implements OnInit {
   private boardPost: BoardPost;
 
   private loggedUsername: string;
+  commentToAdd: string;
 
   constructor(private boardService: BoardService,
-              private tokenStorageService: TokenStorageService) { }
+              private tokenStorageService: TokenStorageService) {
+  }
 
   ngOnInit() {
     this.loggedUsername = this.tokenStorageService.getLoggedUsername();
@@ -33,10 +35,18 @@ export class BoardCardComponent implements OnInit {
   }
 
   isLikedByUser(likes: User[]): boolean {
-    return !!likes.find(u => u.username === this.loggedUsername);;
+    return !!likes.find(u => u.username === this.loggedUsername);
   }
 
   getUsersLiked(): string {
     return this.boardPost.likes.map(b => b.username).join(', ');
+  }
+
+  commentBoardPost(id: number) {
+    return this.boardService.commentBoardPost(id, this.commentToAdd).subscribe(result => {
+      console.log(result);
+      this.boardPost.boardComments.push(result);
+      this.commentToAdd = '';
+    });
   }
 }

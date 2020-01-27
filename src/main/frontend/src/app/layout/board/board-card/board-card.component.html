@@ -23,4 +23,36 @@
       <mat-icon matTooltip="Wyślij wiadomość">message</mat-icon>
     </button>
   </igx-card-actions>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Komentarze
+        </mat-panel-title>
+        <mat-panel-description>
+          {{boardPost.boardComments.length}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxFill>
+<!--        <ng-container *ngFor="let comment of boardPost.boardComments">
+          [{{comment.created | date: 'short'}}] {{comment.user.username}}: {{comment.content}} <br>
+        </ng-container>-->
+
+        <igx-list *ngFor="let comment of boardPost.boardComments">
+          <igx-list-item >
+            <h1 igxListLineTitle class="comment-title"><b>{{comment.user.username}}</b> [{{ comment.created |date: 'short' }}] napisał: </h1>
+            <p igxListLineSubTitle>{{comment.content}}</p>
+          </igx-list-item>
+        </igx-list>
+
+      <textarea class="textarea" matInput placeholder="Napisz komentarz" [(ngModel)]="commentToAdd"
+
+      ></textarea>
+        <button igxButton (click)="commentBoardPost(boardPost.id)">Wyślij komentarz</button>
+      </div>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
 </igx-card>

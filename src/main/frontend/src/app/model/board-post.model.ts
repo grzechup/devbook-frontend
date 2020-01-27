@@ -1,5 +1,5 @@
 import {User} from "./user.model";
-import {UserComment} from "./user-comment.model";
+import {BoardComment} from "./board-comment.model";
 
 export class BoardPost {
 
@@ -7,6 +7,6 @@ export class BoardPost {
   user: User;
   content: string;
   likes: User[];
-  comments: UserComment[];
+  boardComments: BoardComment[];
   created: Date;
 }

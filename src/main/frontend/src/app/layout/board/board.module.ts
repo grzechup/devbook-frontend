@@ -9,14 +9,15 @@ import {FlexModule} from "@angular/flex-layout";
 import {BoardCardComponent} from "./board-card/board-card.component";
 import {BoardPostDialogComponent} from "./board-post-dialog/board-post-dialog.component";
 import {
-    IgxButtonModule, IgxCardModule,
-    IgxComboModule,
-    IgxDatePickerModule,
-    IgxDialogModule, IgxIconModule, IgxInputGroupModule,
-    IgxRippleModule,
-    IgxTimePickerModule
+  IgxButtonModule, IgxCardModule,
+  IgxComboModule,
+  IgxDatePickerModule,
+  IgxDialogModule, IgxIconModule, IgxInputGroupModule, IgxListModule,
+  IgxRippleModule,
+  IgxTimePickerModule
 } from "igniteui-angular";
 import {MatInputModule} from "@angular/material/input";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 
@@ -26,24 +27,26 @@ import {MatInputModule} from "@angular/material/input";
     BoardComponent,
     BoardCardComponent,
     BoardPostDialogComponent],
-    imports: [
-        IgxIconModule,
-        IgxInputGroupModule,
-        IgxButtonModule,
-        IgxRippleModule,
-        IgxDatePickerModule,
-        IgxTimePickerModule,
-        IgxComboModule,
-        BoardRoutingModule,
-        MaterialModule,
-        FormsModule,
-        CommonModule,
-        MatCardModule,
-        FlexModule,
-        IgxDialogModule,
-        MatInputModule,
-        IgxCardModule,
-    ],
+  imports: [
+    IgxIconModule,
+    IgxInputGroupModule,
+    IgxButtonModule,
+    IgxRippleModule,
+    IgxDatePickerModule,
+    IgxTimePickerModule,
+    IgxComboModule,
+    BoardRoutingModule,
+    MaterialModule,
+    FormsModule,
+    CommonModule,
+    MatCardModule,
+    FlexModule,
+    IgxDialogModule,
+    MatInputModule,
+    IgxCardModule,
+    MatExpansionModule,
+    IgxListModule,
+  ],
   exports: [
     BoardCardComponent
   ],
