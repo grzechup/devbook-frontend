@@ -1,1 +1,26 @@
-<mat-card class="card"></mat-card>
+<igx-card class="board-post-card">
+  <!--  TODO: zdjecie profilowe-->
+  <!--              <igx-card-media height="196px">
+                  <img [src]="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50">
+                </igx-card-media>-->
+  <igx-card-header>
+    <h3 igxCardHeaderTitle>{{boardPost.user.firstname}} {{boardPost.user.lastname}} </h3>
+    <h5 igxCardHeaderSubtitle>{{boardPost.user.username}}
+      <p style="all:unset; float:right" align="right">{{boardPost.created | date : 'medium' }}</p>
+    </h5>
+  </igx-card-header>
+  <igx-card-content>
+
+    <p >{{boardPost.content}}</p>
+  </igx-card-content>
+  <igx-card-actions>
+    {{boardPost.likes.length}} &nbsp; &nbsp; &nbsp;{{getUsersLiked()}}
+    <button igxButton igxRipple (click)="likeBoardPost(boardPost.id)" *ngIf="!isLikedByUser(boardPost.likes)">
+      <mat-icon style="color:gray">thumb_up</mat-icon></button>
+    <button igxButton igxRipple (click)="unlikeBoardPost(boardPost.id)" *ngIf="isLikedByUser(boardPost.likes)">
+      <mat-icon>thumb_up</mat-icon></button>
+    <button igxButton="icon" igxRipple igxRippleCentered="true">
+      <mat-icon matTooltip="Wyślij wiadomość">message</mat-icon>
+    </button>
+  </igx-card-actions>
+</igx-card>

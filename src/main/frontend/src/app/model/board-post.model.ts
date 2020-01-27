@@ -3,9 +3,10 @@ import {UserComment} from "./user-comment.model";
 
 export class BoardPost {
 
-  id:number;
-  userId: number;
-  content:string;
+  id: number;
+  user: User;
+  content: string;
   likes: User[];
   comments: UserComment[];
+  created: Date;
 }

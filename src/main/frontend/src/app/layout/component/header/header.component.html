@@ -4,25 +4,23 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div *ngIf="!!loggedInUser">Witaj
-   {{loggedInUser.firstname}}, masz {{loggedInUser.experience}} punktów doświadczenia
-  </div>
+  <div class="title">Devbook</div>
   <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
       <li>
-        <a routerLink="/site/board">Board</a>
+        <a routerLink="/site/board" class="link">Board</a>
       </li>
       <li>
-        <a routerLink="/site/nanoblog">Nanoblog</a>
+        <a routerLink="/site/nanoblog" class="link">Nanoblog</a>
       </li>
       <li>
-        <a routerLink="/site/nullpointer">Nullpointer</a>
+        <a routerLink="/site/nullpointer" class="link">Nullpointer</a>
       </li>
       <li>
-        <a routerLink="/site/joboffers">Jobber</a>
+        <a routerLink="/site/joboffers" class="link">Jobber</a>
       </li>
       <li>
-        <a routerLink="/site/friends">Znajomi</a>
+        <a routerLink="/site/friends" class="link">Znajomi</a>
       </li>
     </ul>
   </div>

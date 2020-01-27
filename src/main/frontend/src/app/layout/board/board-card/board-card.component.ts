@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BoardService} from "../../../services/board.service";
+import {BoardPost} from "../../../model/board-post.model";
+import {UserService} from "../../../services/user.service";
+import {TokenStorageService} from "../../../security/token-storage.service";
+import {User} from "../../../model/user.model";
 
 @Component({
   selector: 'app-board-card',
@@ -8,9 +12,31 @@ import {BoardService} from "../../../services/board.service";
 })
 export class BoardCardComponent implements OnInit {
 
-  constructor(private boardService: BoardService) { }
+  @Input()
+  private boardPost: BoardPost;
+
+  private loggedUsername: string;
+
+  constructor(private boardService: BoardService,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
+    this.loggedUsername = this.tokenStorageService.getLoggedUsername();
   }
 
+  likeBoardPost(id: number) {
+    this.boardService.likeBoardPost(id).subscribe(result => this.boardPost = result);
+  }
+
+  unlikeBoardPost(id: number) {
+    this.boardService.unlikeBoardPost(id).subscribe(result => this.boardPost = result);
+  }
+
+  isLikedByUser(likes: User[]): boolean {
+    return !!likes.find(u => u.username === this.loggedUsername);;
+  }
+
+  getUsersLiked(): string {
+    return this.boardPost.likes.map(b => b.username).join(', ');
+  }
 }

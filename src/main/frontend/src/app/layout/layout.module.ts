@@ -12,13 +12,15 @@ import {JobOffersModule} from "./job-offers/job-offers.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
 import {FriendsListModule} from "./friends-list/friends-list.module";
+import {IgxDialogModule} from "igniteui-angular";
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
+    IgxDialogModule,
     FlexLayoutModule,
     LayoutRoutingModule,
     MaterialModule,

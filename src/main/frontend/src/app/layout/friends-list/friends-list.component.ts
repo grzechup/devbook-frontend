@@ -20,15 +20,18 @@ export class FriendsListComponent implements OnInit {
   ngOnInit() {
     this.userService.getLoggedInUser().subscribe(result => {
       console.log(result);
+    });
+
+    this.userService.getFriendsAndInvitations().subscribe(result => {
       this.populateFields(result);
-    })
+    });
   }
 
   populateFields(user:User){
     this.invitedFriends = user.invitedFriends.map(i => i.to);
     this.invitations = user.invitationsToFriends.map(i =>i.from);
     this.friends = user.friends.map(f => f.from);
-    user.friendsOf.map(f => f.to).forEach(f => this.friends.push(f));
+    user.friendsAccepted.map(f => f.to).forEach(f => this.friends.push(f));
   }
 
   onSearchButtonClick() {

@@ -1,10 +1,13 @@
 <div fxFill fxLayout="row">
   <div fxFlex="70" class="board">
-    <app-board-card></app-board-card>
-    <app-board-card></app-board-card>
+
+    <app-board-post-dialog (submitedPost)="this.ngOnInit()"></app-board-post-dialog>
+
+    <ng-container *ngFor="let post of boardPosts">
+      <app-board-card [boardPost]="post" class="board-post-card"></app-board-card>
+    </ng-container>
 
   </div>
-
   <div fxFlex="30" class="right-column">
     col 2
   </div>

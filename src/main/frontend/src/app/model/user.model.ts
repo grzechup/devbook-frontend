@@ -10,7 +10,7 @@ export class User {
   email: string;
   role: Role;
   friends: InvitationsToFriends[];
-  friendsOf: InvitationsToFriends[];
+  friendsAccepted: InvitationsToFriends[];
   invitedFriends: InvitationsToFriends[];
   invitationsToFriends: InvitationsToFriends[];
   experience: number;

@@ -31,4 +31,8 @@ export class TokenStorageService {
   public getUserAuth() {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
   }
+
+  public getLoggedUsername(){
+    return this.getUserAuth().username;
+  }
 }
