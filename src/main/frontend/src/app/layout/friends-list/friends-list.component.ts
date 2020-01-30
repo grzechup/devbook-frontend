@@ -23,6 +23,7 @@ export class FriendsListComponent implements OnInit {
     });
 
     this.userService.getFriendsAndInvitations().subscribe(result => {
+      console.log(result);
       this.populateFields(result);
     });
   }
