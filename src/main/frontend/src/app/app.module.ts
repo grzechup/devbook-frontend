@@ -17,6 +17,7 @@ import { BoardService } from "./services/board.service";
 import { HeaderComponent } from "./layout/component/header/header.component";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import {IgxGridModule} from "igniteui-angular";
+import {NanoblogService} from "./services/nanoblog.service";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {IgxGridModule} from "igniteui-angular";
     TokenStorageService,
     AuthGuardService,
     BoardService,
+    NanoblogService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHtppInterceptorService,

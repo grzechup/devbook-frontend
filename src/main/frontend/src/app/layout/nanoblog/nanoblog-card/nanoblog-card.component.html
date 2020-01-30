@@ -1,0 +1,50 @@
+<igx-card class="board-post-card">
+  <!--  TODO: zdjecie profilowe-->
+  <!--              <igx-card-media height="196px">
+                  <img [src]="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50">
+                </igx-card-media>-->
+  <igx-card-header>
+    <h3 igxCardHeaderTitle>{{nanoblogPost.user.firstname}} {{nanoblogPost.user.lastname}} </h3>
+    <h5 igxCardHeaderSubtitle>{{nanoblogPost.user.username}}
+      <p style="all:unset; float:right">{{nanoblogPost.created | date : 'medium' }}</p>
+    </h5>
+  </igx-card-header>
+  <igx-card-content>
+    <p >{{nanoblogPost.content}}</p>
+  </igx-card-content>
+  <igx-card-actions>
+<!--    <button igxButton igxRipple (click)="likeNanoblogPost(nanoblogPost.id)" *ngIf="!isLikedByUser(nanoblogPost.likes)">
+      <mat-icon style="color:gray">thumb_up</mat-icon></button>
+    <button igxButton igxRipple (click)="unlikeNanoblogPost(nanoblogPost.id)" *ngIf="isLikedByUser(nanoblogPost.likes)">
+      <mat-icon>thumb_up</mat-icon>&nbsp; Lubisz to!
+    </button>-->
+    <p style="all:unset;">
+      <mat-icon class="thumb-counter">thumb_up</mat-icon>
+      {{!!nanoblogPost.likes ? nanoblogPost.likes.length : 0}} &nbsp; &nbsp; &nbsp;{{getUsersLiked()}}
+    </p>
+  </igx-card-actions>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Komentarze
+        </mat-panel-title>
+        <mat-panel-description>
+          {{!!nanoblogPost.comments ? nanoblogPost.comments.length : 0}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxFill>
+        <igx-list *ngFor="let comment of nanoblogPost.comments">
+          <igx-list-item >
+            <h1 igxListLineTitle class="comment-title"><b>{{comment.user.username}}</b> [{{ comment.created |date: 'short' }}] napisał: </h1>
+            <p igxListLineSubTitle>{{comment.content}}</p>
+          </igx-list-item>
+        </igx-list>
+        <textarea class="textarea" matInput placeholder="Napisz komentarz" [(ngModel)]="commentToAdd"
+        ></textarea>
+        <button igxButton (click)="commentNanoblogPost(nanoblogPost.id)">Wyślij komentarz</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</igx-card>

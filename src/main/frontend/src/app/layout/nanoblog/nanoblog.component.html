@@ -1,1 +1,8 @@
-<p>nanoblog works!</p>
+<div fxFill class="content">
+  <app-nanoblog-post-dialog-button fxLayoutAlign="center"
+                                   (submitedPost)="this.ngOnInit()"></app-nanoblog-post-dialog-button>
+
+  <ng-container *ngFor="let post of nanoblogPosts">
+    <app-nanoblog-card [nanoblogPost]="post"></app-nanoblog-card>
+  </ng-container>
+</div>

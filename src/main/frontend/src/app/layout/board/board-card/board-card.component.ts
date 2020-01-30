@@ -23,6 +23,7 @@ export class BoardCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.boardPost);
     this.loggedUsername = this.tokenStorageService.getLoggedUsername();
   }
 
@@ -35,6 +36,7 @@ export class BoardCardComponent implements OnInit {
   }
 
   isLikedByUser(likes: User[]): boolean {
+    console.log(likes);
     return !!likes.find(u => u.username === this.loggedUsername);
   }
 

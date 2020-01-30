@@ -1,0 +1,15 @@
+<button igxButton="raised" igxRipple="white" style="margin-top:10px;"
+        (click)="dialog.open()">Dodaj post</button>
+
+<igx-dialog #dialog title="Dodaj post na nanobloga"
+
+            leftButtonLabel="Cancel"
+            (onLeftButtonSelect)="dialog.close()"
+            rightButtonLabel="OK"
+            (onRightButtonSelect)="onDialogOKSelected(); dialog.close()">
+  <div fxFill>
+      <textarea matInput placeholder="..." [(ngModel)]="newPostContent"
+                class="post-content"
+      ></textarea>
+  </div>
+</igx-dialog>
