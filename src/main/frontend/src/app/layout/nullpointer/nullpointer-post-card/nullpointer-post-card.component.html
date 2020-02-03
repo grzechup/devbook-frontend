@@ -1,0 +1,17 @@
+<igx-card class="nullpointer-post-card">
+  <igx-card-header>
+    <h3 igxCardHeaderTitle class="title">
+      <a routerLink="/site/nullpointer/{{nullpointerPost.id}}">
+        {{nullpointerPost.title}}
+      </a>
+    </h3>
+    <h5 igxCardHeaderSubtitle>{{nullpointerPost.user.username}}
+      <p style="all:unset; float:right">{{nullpointerPost.created | date : 'medium' }}</p>
+    </h5>
+  </igx-card-header>
+  <igx-card-content>
+    <p>{{nullpointerPost.content}}</p>
+  </igx-card-content>
+  <igx-card-actions>
+  </igx-card-actions>
+</igx-card>

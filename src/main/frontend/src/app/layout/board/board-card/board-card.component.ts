@@ -36,7 +36,6 @@ export class BoardCardComponent implements OnInit {
   }
 
   isLikedByUser(likes: User[]): boolean {
-    console.log(likes);
     return !!likes.find(u => u.username === this.loggedUsername);
   }
 

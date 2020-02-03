@@ -1,0 +1,79 @@
+<!--TODO: zrobic zeby tytul byl wyswietlany na pasku-->
+<div fxFill class="content">
+
+<!--  tutaj cos sie psulo i zrobilem taki hack zeby zrobic margines-->
+  <div style="height:0;">&nbsp;</div>
+
+  <igx-card class="nullpointer-post" *ngIf="!!nullpointerPost">
+    <igx-card-header>
+      <h1 igxCardHeaderTitle style="font-size:2rem;">
+        {{nullpointerPost.title}}
+      </h1>
+      <h3 igxCardHeaderSubtitle>Zadane przez:
+        <p style="all:unset; font-weight: bold">{{nullpointerPost.user.username}}</p> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        Wyświetleń: <p style="all:unset; font-weight: bold"> {{nullpointerPost.views.length}} </p>
+        <p style="all:unset; float:right">{{nullpointerPost.created | date : 'medium' }}</p>
+      </h3>
+    </igx-card-header>
+    <igx-card-content>
+      <p style="font-size:1.5rem; line-height:1.90rem;">{{nullpointerPost.content}}</p>
+    </igx-card-content>
+    <igx-card-content>
+      <div fxFill>
+        Odpowiedzi:
+        <igx-list *ngFor="let comment of nullpointerPost.nullpointerComments">
+          <igx-list-item style="border:1px">
+            <div fxFlexFill fxLayout="rows" style="padding: 5px">
+              <div fxFlex="5">
+                <div>
+                  <button mat-icon-button *ngIf="!isNullpointerCommentUpvotedByUser(comment.id)
+                  && !isNullpointerCommentWrittenByUser(comment.id)"
+                          (click)="upvoteNullpointerComment(comment.id)">
+                    <mat-icon>thumb_up</mat-icon>
+                  </button>
+                  <button mat-icon-button *ngIf="isNullpointerCommentUpvotedByUser(comment.id)
+                  && !isNullpointerCommentWrittenByUser(comment.id)">
+                    <mat-icon color="primary">thumb_up</mat-icon>
+                  </button>
+                </div>
+                <div style="margin-top:20px">
+                  {{countPoints(comment.pointsUp, comment.pointsDown)}}
+                </div>
+                <div style="margin-top:20px">
+                  <button mat-icon-button *ngIf="!isNullpointerCommentDownvotedByUser(comment.id)
+                  && !isNullpointerCommentWrittenByUser(comment.id)"
+                          (click)="downvoteNullpointerComment(comment.id)">
+                    <mat-icon>thumb_down</mat-icon>
+                  </button>
+                  <button mat-icon-button *ngIf="isNullpointerCommentDownvotedByUser(comment.id)
+                  && !isNullpointerCommentWrittenByUser(comment.id)">
+                    <mat-icon color="primary">thumb_down</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div fxFlex="95">
+                <h1 igxListLineTitle class="comment-title"><b>{{comment.user.username}}</b>
+                  [{{ comment.created |date: 'short' }}] napisał:
+                  <a style="float:right; color:red"
+                     *ngIf="isNullpointerCommentWrittenByUser(comment.id)" href="javascript:;"
+                     (click)="deleteNullpointerComment(comment.id)">Usuń komentarz
+                  </a>
+                </h1>
+                <p igxListLineSubTitle
+                   style="font-size:large; margin-top:10px; line-height:1.40rem">
+                  {{comment.content}}</p>
+              </div>
+            </div>
+          </igx-list-item>
+        </igx-list>
+        <div style="margin-top:20px">
+        <textarea class="textarea" rows="7"
+                  matInput placeholder="Napisz komentarz" [(ngModel)]="commentToAdd"></textarea>
+          <button igxButton (click)="commentNullpointerPost(nullpointerPost.id)">Wyślij komentarz</button>
+        </div>
+      </div>
+    </igx-card-content>
+    <igx-card-actions>
+    </igx-card-actions>
+  </igx-card>
+</div>

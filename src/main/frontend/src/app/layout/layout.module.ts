@@ -32,7 +32,6 @@ import {IgxDialogModule} from "igniteui-angular";
     NanoblogModule,
     JobOffersModule,
     FriendsListModule
-
   ],
   providers: [],
   exports: [],

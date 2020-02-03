@@ -8,7 +8,7 @@
   <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
       <li>
-        <a routerLink="/site/board" class="link">Board</a>
+        <a routerLink="/site/board" class="link">Tablica</a>
       </li>
       <li>
         <a routerLink="/site/nanoblog" class="link">Nanoblog</a>
@@ -24,8 +24,9 @@
       </li>
     </ul>
   </div>
-  <div>powiadomienia</div>
+  <div></div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-    <button mat-button><mat-icon>menu</mat-icon></button>
+    <!--<button mat-button><mat-icon>menu</mat-icon></button>-->
+    <a href="javascript:;" (click)="logout()">Wyloguj</a>
   </div>
 </mat-toolbar>

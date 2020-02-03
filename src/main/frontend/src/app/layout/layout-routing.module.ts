@@ -7,6 +7,9 @@ import {JobOffersComponent} from "./job-offers/job-offers.component";
 import {LayoutComponent} from "./layout.component";
 import {AuthGuardService} from "../security/auth-guard.service";
 import {FriendsListComponent} from "./friends-list/friends-list.component";
+import {NullpointerPostFormComponent} from "./nullpointer/nullpointer-post-form/nullpointer-post-form.component";
+import {NullpointerPostComponent} from "./nullpointer/nullpointer-post/nullpointer-post.component";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 
 const routes: Routes = [
@@ -38,6 +41,18 @@ const routes: Routes = [
         loadChildren: () => import('./friends-list/friends-list.module').then(m => m.FriendsListModule),
         canActivate: [AuthGuardService]
       },
+      {
+        path: 'nullpointer/new', component: NullpointerPostFormComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'nullpointer/:id', component: NullpointerPostComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'profile/:id', component: UserProfileComponent,
+        canActivate: [AuthGuardService]
+      }
 /*      {path: '', redirectTo: 'board', pathMatch: 'full'}*/
     ]
   }

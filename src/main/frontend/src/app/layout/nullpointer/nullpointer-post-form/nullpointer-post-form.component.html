@@ -1,0 +1,26 @@
+<div class="container col-lg-6">
+  <h4 class="text-center">Dodaj nowe pytanie</h4>
+  <div class="card">
+    <div class="card-body">
+      <form class="form-group">
+<!--        <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+        <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>-->
+        <div class="form-group">
+          <label>Tytuł:</label>
+          <input matInput type="text" class="form-control" name="title"
+                 [(ngModel)]="titleToAdd" placeholder="Wpisz tytuł">
+        </div>
+        <div class="form-group">
+  <textarea class="textarea"  rows="10" name="question"
+            matInput placeholder="Napisz pytanie" [(ngModel)]="contentToAdd">
+  </textarea>
+        </div>
+        <div class="form-group">
+          <label>Tagi:</label>
+          <input matInput name="tags" type="text" class="form-control" [(ngModel)]="tags">
+        </div>
+        <button (click)=addNewQuestion() class="btn btn-success">Wyślij</button>
+      </form>
+    </div>
+  </div>
+</div>
